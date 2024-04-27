@@ -1,0 +1,37 @@
+# Visual Studio / Code specific 
+/bin/
+/obj/
+*.suo
+*.user
+*.IntProj
+*.vbproj
+*.sln
+
+# Temporary ASP.NET Core folders
+**/__*
+
+# Secret Manager - development environment variables
+**/.secrets/*
+
+# Build artifacts
+**/artifacts/
+
+# Test coverage report
+**/coverage.cobertura.xml
+
+# NuGet packages
+**/packages/
+
+# Project specific config files
+**/appsettings.Development.json
+**/appsettings.Production.json
+**/appsettings.json
+
+# Any user specific config files
+**/UserSecrets/*
+
+# Any DB connection string or other sensitive config files
+**/ConnectionStrings.json
+
+# Any API keys or other secrets
+**/Secrets.json
