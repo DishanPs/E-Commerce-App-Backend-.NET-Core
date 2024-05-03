@@ -39,7 +39,7 @@ namespace ECommerceApp.Controllers
 
         
         [HttpPost]
-        public ActionResult<Product> PostProduct(Product product)
+        public ActionResult<Product> AddProduct(Product product)
         {
             _dbContext.Products.Add(product);
             _dbContext.SaveChanges();
@@ -48,7 +48,7 @@ namespace ECommerceApp.Controllers
 
         
         [HttpPut("{id}")]
-        public IActionResult PutProduct(int id, Product product)
+        public IActionResult UpdateProduct(int id, Product product)
         {
             if (id != product.productID)
             {

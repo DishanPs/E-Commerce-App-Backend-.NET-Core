@@ -26,6 +26,11 @@ namespace ECommerceApp.Controllers
         [HttpPost]
         public ActionResult<User> RegisterUser(User user)
         {
+            if (_dbContext.Users.Any(u => u.email == user.email))
+            {
+                return Conflict("Email is already registered.");
+            }
+
             _dbContext.Users.Add(user);
             _dbContext.SaveChanges();
             return CreatedAtAction(nameof(GetUsers), new { id = user.Id }, user);
