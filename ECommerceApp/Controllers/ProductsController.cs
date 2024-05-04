@@ -1,4 +1,5 @@
 ﻿using ECommerceApp.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ namespace ECommerceApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyPolicy")]
     public class ProductsController : ControllerBase
     {
         private readonly MyDbContext _dbContext;

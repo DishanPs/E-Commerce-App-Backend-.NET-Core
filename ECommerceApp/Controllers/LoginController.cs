@@ -1,4 +1,5 @@
 ﻿using ECommerceApp.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,7 @@ namespace ECommerceApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyPolicy")]
     public class LoginController : ControllerBase
     {
         private readonly MyDbContext _dbContext;
