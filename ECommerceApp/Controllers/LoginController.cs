@@ -55,13 +55,7 @@ namespace ECommerceApp.Controllers
                 return Unauthorized("Invalid Password");
             }
 
-            var response = new
-            {
-                User = user,
-                Message = "Login Successful"
-            };
-
-            return Ok(response);
+            return Ok(user);
         }
     }
 

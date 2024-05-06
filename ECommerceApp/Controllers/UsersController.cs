@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ECommerceApp.Controllers
 {
@@ -48,6 +49,36 @@ namespace ECommerceApp.Controllers
                 return NotFound();
             }
             return Ok(user);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateUser(int id, User user)
+        {
+            if (id != user.Id)
+            {
+                return BadRequest();
+            }
+
+            _dbContext.Entry(user).State = EntityState.Modified;
+            _dbContext.SaveChanges();
+
+            return NoContent();
+        }
+
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteUser(int id)
+        {
+            var user = _dbContext.Users.Find(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _dbContext.Users.Remove(user);
+            _dbContext.SaveChanges();
+
+            return NoContent();
         }
     }
 }
